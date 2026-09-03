@@ -13,6 +13,24 @@ function Arrow() {
   );
 }
 
+function ProjectPlaceholder({ no }: { no: string }) {
+  return (
+    <article className="group cursor-default border-t border-border transition-colors duration-300 hover:border-border-strong">
+      <div className="grid gap-3 py-7 md:grid-cols-[48px_minmax(0,1fr)_100px] md:items-baseline md:gap-8">
+        <span className="label-eyebrow">{no}</span>
+        <div className="min-w-0">
+          <h3 className="flex items-baseline gap-3 text-lg font-medium tracking-tight text-muted-foreground">
+            Project Title
+            <Arrow />
+          </h3>
+          <p className="mt-1 text-sm text-muted-foreground">Short description — send your project details to fill this</p>
+        </div>
+        <span className="label-eyebrow md:text-right">—</span>
+      </div>
+    </article>
+  );
+}
+
 export function Projects() {
   return (
     <section id="projects" className="py-20 md:py-28">
@@ -84,6 +102,11 @@ export function Projects() {
               </article>
             </Reveal>
           ))}
+          
+          {/* Placeholder slots for future projects */}
+          <ProjectPlaceholder no="09" />
+          <ProjectPlaceholder no="10" />
+          
           <div className="rule-top" />
         </ol>
       </Shell>

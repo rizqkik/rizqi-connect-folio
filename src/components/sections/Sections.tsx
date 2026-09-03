@@ -36,24 +36,23 @@ export function About() {
           <div className="max-w-2xl">
             <Reveal delay={80}>
               <p className="text-xl leading-relaxed tracking-tight md:text-[1.4rem] md:leading-[1.6]">
-                I&apos;m a Telecommunication Engineering graduate from PENS, drawn to the point
-                where communication systems meet software. Most of my work sits between the two:
-                planning and testing networks, then writing the code that makes the data they carry
-                useful.
+                I&apos;m a Telecommunication Engineering graduate from PENS, working at the intersection of network infrastructure, embedded systems, and applied AI.
               </p>
             </Reveal>
             <Reveal delay={140}>
               <p className="mt-6 text-[0.975rem] leading-relaxed text-muted-foreground">
-                My studies and projects moved from RF, RAN, and fiber optic fundamentals into
-                embedded systems, robotics, and machine learning — building rescue robots, sensor
-                pipelines, and models that turn raw measurements into decisions. I like problems
-                that require both a spectrum analyzer and a terminal.
+                From deploying BTS and fiber optic networks to building rescue robots and machine learning models for gas detection — I work across the stack: RF planning, IoT pipelines, and intelligent systems that turn sensor data into decisions.
+              </p>
+            </Reveal>
+            <Reveal delay={200}>
+              <p className="mt-4 text-[0.975rem] leading-relaxed text-muted-foreground">
+                My work spans network engineering (SD-WAN, RAN, fiber), IoT/robotics (ESP32, Raspberry Pi, sensor systems), and AI/ML (classification models, voice assistants, data pipelines). I like problems that require both a spectrum analyzer and a terminal.
               </p>
             </Reveal>
 
             <dl className="mt-12 grid gap-x-10 gap-y-6 sm:grid-cols-2">
               {PROFILE_META.map((item, i) => (
-                <Reveal key={item.label} delay={180 + i * 50}>
+                <Reveal key={item.label} delay={240 + i * 50}>
                   <div className="rule-top pt-3">
                     <dt className="label-eyebrow">{item.label}</dt>
                     <dd className="mt-1.5 text-sm tracking-tight">{item.value}</dd>
@@ -73,26 +72,35 @@ export function Experience() {
     <section id="experience" className="py-20 md:py-28">
       <Shell>
         <Reveal>
-          <SectionHead index="01" title="Experience" />
+          <SectionHead index="01" title="Work Experience" />
         </Reveal>
 
-        <ol className="mt-12 md:mt-16">
+        <div className="mt-12 md:mt-16">
           {EXPERIENCE.map((item, i) => (
-            <Reveal key={item.no} delay={i * 80} as="li">
-              <div className="rule-top grid gap-4 py-8 md:grid-cols-[48px_minmax(0,1fr)_140px] md:gap-10">
-                <span className="label-eyebrow md:pt-1">{item.no}</span>
+            <Reveal key={item.no} delay={i * 100}>
+              <div className="rule-top grid gap-6 py-10 md:grid-cols-[140px_minmax(0,1fr)] md:gap-10">
+                {/* Logo placeholder */}
+                <div className="flex md:justify-center md:pt-2">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded bg-surface border border-border flex items-center justify-center">
+                    <span className="text-xs text-muted-foreground text-center px-1">LOGO</span>
+                  </div>
+                </div>
+
+                {/* Experience details */}
                 <div className="min-w-0">
-                  <h3 className="text-lg font-medium tracking-tight">{item.role}</h3>
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <h3 className="text-lg font-medium tracking-tight">{item.role}</h3>
+                    <span className="label-eyebrow shrink-0">{item.year}</span>
+                  </div>
                   <p className="mt-1 text-sm text-accent">{item.org}</p>
                   <p className="mt-4 max-w-xl text-[0.925rem] leading-relaxed text-muted-foreground">
                     {item.body}
                   </p>
                 </div>
-                <span className="label-eyebrow md:pt-1 md:text-right">{item.year}</span>
               </div>
             </Reveal>
           ))}
-        </ol>
+        </div>
       </Shell>
     </section>
   );
@@ -103,7 +111,7 @@ export function Skills() {
     <section id="skills" className="py-20 md:py-28">
       <Shell>
         <Reveal>
-          <SectionHead index="03" title="Skill map" />
+          <SectionHead index="03" title="Technical Skills" />
         </Reveal>
 
         <div className="mt-12 md:mt-16">
@@ -134,7 +142,7 @@ export function Achievements() {
     <section className="py-20 md:py-28">
       <Shell>
         <Reveal>
-          <SectionHead index="04" title="Achievements & certifications" />
+          <SectionHead index="04" title="Achievements & Certifications" />
         </Reveal>
 
         <ul className="mt-12 grid gap-x-14 md:mt-16 md:grid-cols-2">
@@ -157,7 +165,7 @@ export function Leadership() {
     <section className="py-20 md:py-28">
       <Shell>
         <Reveal>
-          <SectionHead index="05" title="Leadership & organisation" />
+          <SectionHead index="05" title="Leadership & Organisation" />
         </Reveal>
 
         <div className="mt-12 md:mt-16">
@@ -191,8 +199,7 @@ export function Contact() {
           </Reveal>
           <Reveal delay={90}>
             <p className="mt-6 max-w-xl text-[0.975rem] leading-relaxed text-muted-foreground">
-              Open to opportunities across network engineering, RF engineering, fiber optic, IoT,
-              embedded systems, robotics, and AI.
+              Open to opportunities across network engineering, RF, fiber optic, IoT, robotics, embedded systems, and AI.
             </p>
           </Reveal>
           <Reveal delay={160}>

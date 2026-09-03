@@ -1,6 +1,5 @@
 "use client";
 
-import { SystemChain } from "./Diagrams";
 import { Shell } from "./Sections";
 
 export function Hero() {
@@ -8,34 +7,52 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden">
       <div className="grid-paper pointer-events-none absolute inset-0" aria-hidden />
       <Shell className="relative pb-16 pt-16 md:pb-20 md:pt-24">
-        <div className="grid gap-16 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:gap-20">
+        <div className="grid gap-12 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-16 items-start">
+          {/* Profile Photo */}
+          <div className="fade-in-up flex justify-center lg:justify-start">
+            <div className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full bg-surface border-2 border-border-strong flex items-center justify-center overflow-hidden">
+              <svg viewBox="0 0 100 100" className="w-24 h-24 text-muted-foreground">
+                <circle cx="50" cy="35" r="18" fill="currentColor" opacity="0.3" />
+                <ellipse cx="50" cy="75" rx="30" ry="22" fill="currentColor" opacity="0.3" />
+                <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.2" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Hero Content */}
           <div>
-            <p
-              className="fade-in-up label-eyebrow"
+            <h1
+              className="fade-in-up text-[2.5rem] font-medium leading-[1.1] tracking-[-0.02em] sm:text-[3rem] lg:text-[3.5rem]"
               style={{ ["--anim-delay" as string]: "80ms" }}
+            >
+              Muhammad Rizqi Fauzan
+            </h1>
+
+            <p
+              className="fade-in-up mt-4 text-xl md:text-2xl tracking-tight text-muted-foreground font-medium"
+              style={{ ["--anim-delay" as string]: "160ms" }}
             >
               Telecommunication Engineer · Network · IoT · Robotics · AI
             </p>
 
-            <h1
-              className="fade-in-up mt-7 max-w-[19ch] text-[2.35rem] font-medium leading-[1.08] tracking-[-0.025em] sm:text-[3rem] lg:text-[3.5rem]"
-              style={{ ["--anim-delay" as string]: "160ms" }}
-            >
-              Engineering systems that connect the physical and digital world.
-            </h1>
-
             <p
-              className="fade-in-up mt-8 max-w-xl text-[1rem] leading-relaxed text-muted-foreground"
+              className="fade-in-up mt-6 max-w-2xl text-base md:text-[1.05rem] leading-relaxed text-muted-foreground"
               style={{ ["--anim-delay" as string]: "240ms" }}
             >
-              Fresh graduate in Telecommunication Engineering with hands-on experience across
-              network infrastructure, RF/RAN, fiber optic, IoT, robotics, and artificial
-              intelligence.
+              Telecommunication engineer with hands-on experience across network infrastructure, RF/RAN, fiber optic deployment, IoT systems, robotics, and AI/ML. Currently open to opportunities in network engineering, embedded systems, and applied AI.
             </p>
 
             <div
-              className="fade-in-up mt-10 flex flex-wrap items-center gap-3"
+              className="fade-in-up mt-8 flex items-center gap-2.5"
               style={{ ["--anim-delay" as string]: "320ms" }}
+            >
+              <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-accent" />
+              <span className="label-eyebrow">Currently open to opportunities</span>
+            </div>
+
+            <div
+              className="fade-in-up mt-10 flex flex-wrap items-center gap-3"
+              style={{ ["--anim-delay" as string]: "400ms" }}
             >
               <a
                 href="#projects"
@@ -53,21 +70,6 @@ export function Hero() {
                 Let&apos;s Connect
               </a>
             </div>
-
-            <div
-              className="fade-in-up mt-12 flex items-center gap-2.5"
-              style={{ ["--anim-delay" as string]: "400ms" }}
-            >
-              <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-accent" />
-              <span className="label-eyebrow">Currently open to opportunities</span>
-            </div>
-          </div>
-
-          <div
-            className="fade-in-up max-w-sm self-end lg:justify-self-end"
-            style={{ ["--anim-delay" as string]: "280ms" }}
-          >
-            <SystemChain />
           </div>
         </div>
       </Shell>

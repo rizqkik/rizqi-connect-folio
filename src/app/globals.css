@@ -166,8 +166,8 @@
   opacity: 0;
   transform: translateY(14px);
   transition:
-    opacity 600ms var(--ease-out-quart),
-    transform 600ms var(--ease-out-quart);
+    opacity 700ms var(--ease-out-quart),
+    transform 700ms var(--ease-out-quart);
   transition-delay: var(--reveal-delay, 0ms);
 
   &[data-shown="true"] {

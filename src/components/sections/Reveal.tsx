@@ -22,7 +22,7 @@ export function useInView<T extends HTMLElement>(options?: { threshold?: number;
           }
         }
       },
-      { threshold: options?.threshold ?? 0.15, rootMargin: "0px 0px -8% 0px" },
+      { threshold: options?.threshold ?? 0.15, rootMargin: "0px 0px -10% 0px" },
     );
 
     observer.observe(node);
@@ -41,7 +41,7 @@ type RevealProps = {
 
 /** Fade-up scroll reveal. Content stays fully readable with animations disabled. */
 export function Reveal({ children, as: Tag = "div", delay = 0, className }: RevealProps) {
-  const { ref, inView } = useInView<HTMLDivElement>();
+  const { ref, inView } = useInView<HTMLDivElement>({ once: false });
 
   return (
     <Tag
