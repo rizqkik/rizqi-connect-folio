@@ -26,7 +26,7 @@ export function SectionHead({ index, title }: { index: string; title: string }) 
 
 export function About() {
   return (
-    <section id="about" className="py-20 md:py-32">
+    <section id="about" className="py-16 md:py-24">
       <Shell>
         <div className="rule-top grid gap-10 pt-10 md:grid-cols-[180px_minmax(0,1fr)] md:gap-16">
           <Reveal>

@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
       <div className="grid-paper pointer-events-none absolute inset-0" aria-hidden />
-      <Shell className="relative pb-20 pt-16 md:pb-28 md:pt-24">
+      <Shell className="relative pb-16 pt-16 md:pb-20 md:pt-24">
         <div className="grid gap-16 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:gap-20">
           <div>
             <p
