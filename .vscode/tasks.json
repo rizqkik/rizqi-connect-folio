@@ -1,0 +1,45 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Dev Server",
+      "type": "npm",
+      "script": "dev",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "next",
+        "pattern": {
+          "regexp": "^([^\\s].*)\\((\\d+,\\d+)\\):\\s+(warning|error)\\s+(.*)$",
+          "file": 1,
+          "location": 2,
+          "severity": 3,
+          "message": 4
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*Ready|▲ Next",
+          "endsPattern": ".*Ready in.*|.*started"
+        }
+      }
+    },
+    {
+      "label": "Open Preview in VS Code",
+      "type": "shell",
+      "command": "${input:openSimpleBrowser}",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "never",
+        "panel": "shared"
+      },
+      "dependsOn": "Dev Server"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "openSimpleBrowser",
+      "type": "command",
+      "command": "simple-browser.show",
+      "args": "http://localhost:3001"
+    }
+  ]
+}
