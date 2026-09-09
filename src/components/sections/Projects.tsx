@@ -1,6 +1,5 @@
 "use client";
 
-import { AerisArchitecture } from "./Diagrams";
 import { Reveal } from "./Reveal";
 import { SectionHead, Shell } from "./Sections";
 import { PROJECTS } from "@/lib/data";
@@ -13,24 +12,6 @@ function Arrow() {
   );
 }
 
-function ProjectPlaceholder({ no }: { no: string }) {
-  return (
-    <article className="group cursor-default border-t border-border transition-colors duration-300 hover:border-border-strong">
-      <div className="grid gap-3 py-7 md:grid-cols-[48px_minmax(0,1fr)_100px] md:items-baseline md:gap-8">
-        <span className="label-eyebrow">{no}</span>
-        <div className="min-w-0">
-          <h3 className="flex items-baseline gap-3 text-lg font-medium tracking-tight text-muted-foreground">
-            Project Title
-            <Arrow />
-          </h3>
-          <p className="mt-1 text-sm text-muted-foreground">Short description — send your project details to fill this</p>
-        </div>
-        <span className="label-eyebrow md:text-right">—</span>
-      </div>
-    </article>
-  );
-}
-
 export function Projects() {
   return (
     <section id="projects" className="py-20 md:py-28">
@@ -39,51 +20,21 @@ export function Projects() {
           <SectionHead index="02" title="Selected Projects" />
         </Reveal>
 
-        {/* Featured */}
-        <Reveal delay={80}>
-          <article className="group mt-12 md:mt-16">
-            <div className="rule-top grid gap-10 pt-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-16">
-              <div>
-                <div className="flex items-baseline gap-4">
-                  <span className="label-eyebrow">01</span>
-                  <span className="label-eyebrow">Featured · 2026</span>
-                </div>
-                <h3 className="mt-5 flex items-baseline gap-4 text-[2rem] font-medium tracking-tight transition-transform duration-300 ease-out group-hover:translate-x-1 md:text-[2.5rem]">
-                  AERIS
-                  <Arrow />
-                </h3>
-                <p className="mt-2 text-base tracking-tight text-accent">
-                  Rescue Robot System for Hazardous Gas Detection
-                </p>
-                <p className="mt-6 max-w-lg text-[0.975rem] leading-relaxed text-muted-foreground">
-                  A fullstack mobile rescue robot designed for hazardous gas detection in
-                  post-disaster environments, combining gas sensors, microcontroller-based control,
-                  wireless communication, and machine learning.
-                </p>
-                <ul className="mt-8 flex flex-wrap items-baseline gap-x-3 gap-y-2">
-                  {["Random Forest", "ESP32", "Raspberry Pi", "Python", "IoT", "Robotics"].map(
-                    (tag, i) => (
-                      <li key={tag} className="flex items-baseline gap-3 label-eyebrow">
-                        {i > 0 && <span className="text-border-strong">·</span>}
-                        <span>{tag}</span>
-                      </li>
-                    ),
-                  )}
-                </ul>
-              </div>
-
-              <div className="border border-border bg-surface p-6 transition-colors duration-300 group-hover:border-border-strong md:p-9">
-                <AerisArchitecture />
-              </div>
-            </div>
-          </article>
+        <Reveal delay={60}>
+          <p className="mt-4 max-w-2xl text-[0.975rem] leading-relaxed text-muted-foreground">
+            Selected works across network engineering, AI, and robotics. Each project includes documentation and media — click to view the full Drive folder.
+          </p>
         </Reveal>
 
-        {/* Other projects */}
-        <ol className="mt-20 md:mt-24">
+        <ol className="mt-12 md:mt-16">
           {PROJECTS.map((project, i) => (
-            <Reveal key={project.no} delay={i * 60} as="li">
-              <article className="group cursor-default border-t border-border transition-colors duration-300 hover:border-border-strong">
+            <Reveal key={project.no} delay={i * 50} as="li">
+              <a
+                href={project.drive}
+                target="_blank"
+                rel="noreferrer"
+                className="group block cursor-pointer border-t border-border transition-colors duration-300 hover:border-border-strong"
+              >
                 <div className="grid gap-3 py-7 md:grid-cols-[48px_minmax(0,1.1fr)_minmax(0,1fr)_100px] md:items-baseline md:gap-8">
                   <span className="label-eyebrow">{project.no}</span>
                   <div className="min-w-0">
@@ -99,14 +50,9 @@ export function Projects() {
                   </p>
                   <span className="label-eyebrow md:text-right">{project.year}</span>
                 </div>
-              </article>
+              </a>
             </Reveal>
           ))}
-          
-          {/* Placeholder slots for future projects */}
-          <ProjectPlaceholder no="09" />
-          <ProjectPlaceholder no="10" />
-          
           <div className="rule-top" />
         </ol>
       </Shell>

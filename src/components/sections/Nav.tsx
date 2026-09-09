@@ -56,7 +56,7 @@ export function Nav() {
       )}
     >
       <div className="mx-auto grid max-w-[1180px] grid-cols-[minmax(0,1fr)_auto] items-center gap-6 px-6 py-4 md:px-10">
-        <a href="#top" className="flex min-w-0 items-baseline gap-2.5">
+        <a href="/" className="flex min-w-0 items-baseline gap-2.5">
           <span className="grid h-7 w-7 shrink-0 place-items-center border border-border-strong text-[11px] font-medium tracking-[0.04em]">
             RF
           </span>
@@ -67,7 +67,7 @@ export function Nav() {
           {NAV_LINKS.map((link) => (
             <a
               key={link.id}
-              href={`#${link.id}`}
+              href={`/#${link.id}`}
               className={cn(
                 "relative text-[13px] tracking-tight transition-colors duration-200",
                 active === link.id
@@ -124,7 +124,7 @@ export function Nav() {
           {NAV_LINKS.map((link, i) => (
             <a
               key={link.id}
-              href={`#${link.id}`}
+              href={`/#${link.id}`}
               onClick={() => setOpen(false)}
               style={{ ["--anim-delay" as string]: `${i * 45}ms` }}
               className={cn(

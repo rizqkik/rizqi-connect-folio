@@ -55,7 +55,7 @@ export function Hero() {
               style={{ ["--anim-delay" as string]: "400ms" }}
             >
               <a
-                href="#projects"
+                href="/#projects"
                 className="group flex items-center gap-2.5 bg-primary px-5 py-2.5 text-sm tracking-tight text-primary-foreground transition-opacity duration-200 hover:opacity-88"
               >
                 View Projects
@@ -64,7 +64,7 @@ export function Hero() {
                 </span>
               </a>
               <a
-                href="#contact"
+                href="/#contact"
                 className="border border-border-strong px-5 py-2.5 text-sm tracking-tight transition-colors duration-200 hover:border-accent hover:text-accent"
               >
                 Let&apos;s Connect

@@ -12,15 +12,33 @@ import {
   SKILLS,
 } from "@/lib/data";
 
-export function Shell({ children, className }: { children: ReactNode; className?: string }) {
-  return <div className={cn("mx-auto max-w-[1180px] px-6 md:px-10", className)}>{children}</div>;
+export function Shell({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={cn("mx-auto max-w-[1180px] px-6 md:px-10", className)}>
+      {children}
+    </div>
+  );
 }
 
-export function SectionHead({ index, title }: { index: string; title: string }) {
+export function SectionHead({
+  index,
+  title,
+}: {
+  index: string;
+  title: string;
+}) {
   return (
     <div className="flex items-baseline gap-4">
       <span className="label-eyebrow">{index}</span>
-      <h2 className="text-2xl font-medium tracking-tight md:text-3xl">{title}</h2>
+      <h2 className="text-2xl font-medium tracking-tight md:text-3xl">
+        {title}
+      </h2>
     </div>
   );
 }
@@ -36,17 +54,26 @@ export function About() {
           <div className="max-w-2xl">
             <Reveal delay={80}>
               <p className="text-xl leading-relaxed tracking-tight md:text-[1.4rem] md:leading-[1.6]">
-                I&apos;m a Telecommunication Engineering graduate from PENS, working at the intersection of network infrastructure, embedded systems, and applied AI.
+                I&apos;m a Telecommunication Engineering graduate from PENS,
+                working at the intersection of network infrastructure, embedded
+                systems, and applied AI.
               </p>
             </Reveal>
             <Reveal delay={140}>
               <p className="mt-6 text-[0.975rem] leading-relaxed text-muted-foreground">
-                From deploying BTS and fiber optic networks to building rescue robots and machine learning models for gas detection — I work across the stack: RF planning, IoT pipelines, and intelligent systems that turn sensor data into decisions.
+                From deploying BTS and fiber optic networks to building rescue
+                robots and machine learning models for gas detection — I work
+                across the stack: RF planning, IoT pipelines, and intelligent
+                systems that turn sensor data into decisions.
               </p>
             </Reveal>
             <Reveal delay={200}>
               <p className="mt-4 text-[0.975rem] leading-relaxed text-muted-foreground">
-                My work spans network engineering (SD-WAN, RAN, fiber), IoT/robotics (ESP32, Raspberry Pi, sensor systems), and AI/ML (classification models, voice assistants, data pipelines). I like problems that require both a spectrum analyzer and a terminal.
+                My work spans network engineering (SD-WAN, RAN, fiber),
+                IoT/robotics (ESP32, Raspberry Pi, sensor systems), and AI/ML
+                (classification models, voice assistants, data pipelines). I
+                like problems that require both a spectrum analyzer and a
+                terminal.
               </p>
             </Reveal>
 
@@ -55,7 +82,9 @@ export function About() {
                 <Reveal key={item.label} delay={240 + i * 50}>
                   <div className="rule-top pt-3">
                     <dt className="label-eyebrow">{item.label}</dt>
-                    <dd className="mt-1.5 text-sm tracking-tight">{item.value}</dd>
+                    <dd className="mt-1.5 text-sm tracking-tight">
+                      {item.value}
+                    </dd>
                   </div>
                 </Reveal>
               ))}
@@ -82,14 +111,18 @@ export function Experience() {
                 {/* Logo placeholder */}
                 <div className="flex md:justify-center md:pt-2">
                   <div className="w-16 h-16 md:w-20 md:h-20 rounded bg-surface border border-border flex items-center justify-center">
-                    <span className="text-xs text-muted-foreground text-center px-1">LOGO</span>
+                    <span className="text-xs text-muted-foreground text-center px-1">
+                      LOGO
+                    </span>
                   </div>
                 </div>
 
                 {/* Experience details */}
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="text-lg font-medium tracking-tight">{item.role}</h3>
+                    <h3 className="text-lg font-medium tracking-tight">
+                      {item.role}
+                    </h3>
                     <span className="label-eyebrow shrink-0">{item.year}</span>
                   </div>
                   <p className="mt-1 text-sm text-accent">{item.org}</p>
@@ -121,7 +154,10 @@ export function Skills() {
                 <p className="label-eyebrow md:pt-1">{group.category}</p>
                 <ul className="flex flex-wrap items-baseline gap-x-3 gap-y-2">
                   {group.items.map((item, j) => (
-                    <li key={item} className="flex items-baseline gap-3 text-[0.975rem] tracking-tight">
+                    <li
+                      key={item}
+                      className="flex items-baseline gap-3 text-[0.975rem] tracking-tight"
+                    >
                       {j > 0 && <span className="text-border-strong">·</span>}
                       <span>{item}</span>
                     </li>
@@ -149,7 +185,9 @@ export function Achievements() {
           {ACHIEVEMENTS.map((item, i) => (
             <Reveal key={item.title} delay={i * 55} as="li">
               <div className="rule-top flex items-baseline justify-between gap-6 py-4">
-                <span className="text-[0.975rem] tracking-tight">{item.title}</span>
+                <span className="text-[0.975rem] tracking-tight">
+                  {item.title}
+                </span>
                 <span className="label-eyebrow shrink-0">{item.meta}</span>
               </div>
             </Reveal>
@@ -174,10 +212,16 @@ export function Leadership() {
               <div className="group relative grid gap-3 border-l border-border py-7 pl-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-12">
                 <span className="absolute -left-[3.5px] top-9 h-[7px] w-[7px] bg-border-strong transition-colors duration-300 group-hover:bg-accent" />
                 <div className="min-w-0">
-                  <h3 className="text-base font-medium tracking-tight">{item.role}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{item.org}</p>
+                  <h3 className="text-base font-medium tracking-tight">
+                    {item.role}
+                  </h3>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {item.org}
+                  </p>
                 </div>
-                <p className="text-[0.925rem] leading-relaxed text-muted-foreground">{item.body}</p>
+                <p className="text-[0.925rem] leading-relaxed text-muted-foreground">
+                  {item.body}
+                </p>
               </div>
             </Reveal>
           ))}
@@ -199,7 +243,8 @@ export function Contact() {
           </Reveal>
           <Reveal delay={90}>
             <p className="mt-6 max-w-xl text-[0.975rem] leading-relaxed text-muted-foreground">
-              Open to opportunities across network engineering, RF, fiber optic, IoT, robotics, embedded systems, and AI.
+              Open to opportunities across network engineering, RF, fiber optic,
+              IoT, robotics, embedded systems, and AI.
             </p>
           </Reveal>
           <Reveal delay={160}>
@@ -241,7 +286,9 @@ export function Footer() {
   return (
     <footer className="border-t border-border py-8">
       <Shell className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-[13px] text-muted-foreground">© 2026 Muhammad Rizqi Fauzan</p>
+        <p className="text-[13px] text-muted-foreground">
+          © 2026 Muhammad Rizqi Fauzan
+        </p>
         <nav className="flex gap-6 text-[13px]">
           <a
             href={CONTACT.linkedin}
