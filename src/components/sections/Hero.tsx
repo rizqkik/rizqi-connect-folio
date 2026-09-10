@@ -1,6 +1,7 @@
 "use client";
 
 import { Shell } from "./Sections";
+import Image from "next/image";
 
 export function Hero() {
   return (
@@ -10,12 +11,15 @@ export function Hero() {
         <div className="grid gap-12 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-16 items-start">
           {/* Profile Photo */}
           <div className="fade-in-up flex justify-center lg:justify-start">
-            <div className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full bg-surface border-2 border-border-strong flex items-center justify-center overflow-hidden">
-              <svg viewBox="0 0 100 100" className="w-24 h-24 text-muted-foreground">
-                <circle cx="50" cy="35" r="18" fill="currentColor" opacity="0.3" />
-                <ellipse cx="50" cy="75" rx="30" ry="22" fill="currentColor" opacity="0.3" />
-                <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.2" />
-              </svg>
+            <div className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full bg-surface border-2 border-border-strong overflow-hidden">
+              <Image
+                src="/profile.png"
+                alt="Muhammad Rizqi Fauzan"
+                width={256}
+                height={256}
+                className="w-full h-full object-cover object-[center_20%]"
+                priority
+              />
             </div>
           </div>
 

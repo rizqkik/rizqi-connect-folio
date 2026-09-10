@@ -108,12 +108,20 @@ export function Experience() {
           {EXPERIENCE.map((item, i) => (
             <Reveal key={item.no} delay={i * 100}>
               <div className="rule-top grid gap-6 py-10 md:grid-cols-[140px_minmax(0,1fr)] md:gap-10">
-                {/* Logo placeholder */}
+                {/* Logo */}
                 <div className="flex md:justify-center md:pt-2">
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded bg-surface border border-border flex items-center justify-center">
-                    <span className="text-xs text-muted-foreground text-center px-1">
-                      LOGO
-                    </span>
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded bg-surface border border-border flex items-center justify-center overflow-hidden">
+                    {item.logo ? (
+                      <img
+                        src={item.logo}
+                        alt={item.org}
+                        className="w-full h-full object-contain p-2"
+                      />
+                    ) : (
+                      <span className="text-xs text-muted-foreground text-center px-1">
+                        LOGO
+                      </span>
+                    )}
                   </div>
                 </div>
 
