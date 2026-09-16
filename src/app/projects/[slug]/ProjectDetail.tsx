@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowLeft, ArrowUpRight, Calendar, Users, Layers, Target, Trophy } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowLeft, ArrowUpRight, Calendar, Users, Layers, Target } from "lucide-react";
 import Link from "next/link";
 import { PROJECTS, CONTACT } from "@/lib/data";
 
@@ -57,7 +57,6 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
   const nextProject = PROJECTS[(currentIndex + 1) % PROJECTS.length];
   const prevProject = PROJECTS[(currentIndex - 1 + PROJECTS.length) % PROJECTS.length];
 
-  // Default values if not provided
   const client = project.client || "Independent Project";
   const role = project.role || domainLabel;
   const timeline = project.timeline || project.year;
@@ -72,12 +71,7 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
       <div className="grid-paper pointer-events-none absolute inset-0 opacity-50" aria-hidden />
 
       {/* Back navigation */}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={fadeUp}
-        className="mx-auto max-w-[1400px] px-6 pt-28 md:px-12 md:pt-36"
-      >
+      <div className="mx-auto max-w-[1400px] px-6 pt-28 md:px-12 md:pt-36">
         <Link
           href="/#projects"
           className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-accent"
@@ -85,42 +79,31 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
           <ArrowLeft className="h-4 w-4" />
           Back to Projects
         </Link>
-      </motion.div>
+      </div>
 
       {/* Project Hero */}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={stagger}
-        className="mx-auto max-w-[1400px] px-6 pb-16 pt-8 md:px-12 md:pb-20 md:pt-12"
-      >
+      <div className="mx-auto max-w-[1400px] px-6 pb-16 pt-8 md:px-12 md:pb-20 md:pt-12">
         {/* Domain + Year */}
-        <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-4">
+        <div className="flex flex-wrap items-center gap-4">
           <span className="label-eyebrow">{domainLabel}</span>
           <span className="text-sm text-muted-foreground">{timeline}</span>
-        </motion.div>
+        </div>
 
         {/* Title */}
-        <motion.h1
-          variants={fadeUp}
-          className="mt-4 text-[2.75rem] font-bold leading-[1.05] tracking-[-0.03em] sm:text-[3.5rem] lg:text-[4.5rem]"
-        >
+        <h1 className="mt-4 text-[2.75rem] font-bold leading-[1.05] tracking-[-0.03em] sm:text-[3.5rem] lg:text-[4.5rem]">
           {project.title.split("—")[0].trim()}
           {project.title.includes("—") && (
             <span className="text-gradient"> —{project.title.split("—")[1]}</span>
           )}
-        </motion.h1>
+        </h1>
 
         {/* Subtitle */}
-        <motion.p
-          variants={fadeUp}
-          className="mt-4 max-w-3xl text-xl tracking-tight text-muted-foreground md:text-2xl"
-        >
+        <p className="mt-4 max-w-3xl text-xl tracking-tight text-muted-foreground md:text-2xl">
           {project.subtitle}. {project.body}
-        </motion.p>
+        </p>
 
         {/* Tech Stack */}
-        <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-2">
+        <div className="mt-8 flex flex-wrap gap-2">
           {techItems.map((t) => (
             <span
               key={t}
@@ -129,10 +112,10 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
               {t}
             </span>
           ))}
-        </motion.div>
+        </div>
 
         {/* CTA */}
-        <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center gap-3">
+        <div className="mt-10 flex flex-wrap items-center gap-3">
           <a
             href={project.drive}
             target="_blank"
@@ -148,19 +131,14 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
           >
             Discuss Similar Project
           </Link>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
       {/* Project Info Strip */}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={stagger}
-        className="border-y border-border bg-surface/50"
-      >
+      <div className="border-y border-border bg-surface/50">
         <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-14">
           <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
-            <motion.div variants={fadeUp} className="flex gap-3">
+            <div className="flex gap-3">
               <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-border bg-background">
                 <Target className="h-4 w-4 text-accent" />
               </div>
@@ -168,9 +146,9 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
                 <p className="text-xs font-medium tracking-wide text-muted-foreground">Role</p>
                 <p className="mt-1 text-sm font-semibold">{role}</p>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div variants={fadeUp} className="flex gap-3">
+            <div className="flex gap-3">
               <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-border bg-background">
                 <Calendar className="h-4 w-4 text-accent" />
               </div>
@@ -178,9 +156,9 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
                 <p className="text-xs font-medium tracking-wide text-muted-foreground">Timeline</p>
                 <p className="mt-1 text-sm font-semibold">{timeline}</p>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div variants={fadeUp} className="flex gap-3">
+            <div className="flex gap-3">
               <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-border bg-background">
                 <Users className="h-4 w-4 text-accent" />
               </div>
@@ -188,9 +166,9 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
                 <p className="text-xs font-medium tracking-wide text-muted-foreground">Team</p>
                 <p className="mt-1 text-sm font-semibold">{team.join(", ")}</p>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div variants={fadeUp} className="flex gap-3">
+            <div className="flex gap-3">
               <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-border bg-background">
                 <Layers className="h-4 w-4 text-accent" />
               </div>
@@ -198,45 +176,35 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
                 <p className="text-xs font-medium tracking-wide text-muted-foreground">Deliverables</p>
                 <p className="mt-1 text-sm font-semibold">{deliverables.length} items</p>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Problem Statement */}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={stagger}
-        className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-24"
-      >
+      <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-24">
         <div className="grid gap-12 md:grid-cols-[180px_minmax(0,1fr)] md:gap-20">
-          <motion.div variants={fadeUp}>
+          <div>
             <span className="label-eyebrow">01</span>
             <h2 className="mt-2 text-2xl font-bold tracking-tight md:text-3xl">Problem</h2>
-          </motion.div>
-          <motion.div variants={fadeUp} className="max-w-3xl">
+          </div>
+          <div className="max-w-3xl">
             <p className="text-xl leading-relaxed tracking-tight text-muted-foreground md:text-2xl">
               {getProblem(project)}
             </p>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Approach */}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={stagger}
-        className="bg-surface/50 border-y border-border"
-      >
+      <div className="bg-surface/50 border-y border-border">
         <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-24">
           <div className="grid gap-12 md:grid-cols-[180px_minmax(0,1fr)] md:gap-20">
-            <motion.div variants={fadeUp}>
+            <div>
               <span className="label-eyebrow">02</span>
               <h2 className="mt-2 text-2xl font-bold tracking-tight md:text-3xl">Approach</h2>
-            </motion.div>
-            <motion.div variants={fadeUp} className="max-w-3xl">
+            </div>
+            <div className="max-w-3xl">
               <ul className="space-y-4">
                 {approach.map((step, i) => (
                   <li key={i} className="flex gap-4">
@@ -245,24 +213,19 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Deliverables */}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={stagger}
-        className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-24"
-      >
+      <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-24">
         <div className="grid gap-12 md:grid-cols-[180px_minmax(0,1fr)] md:gap-20">
-          <motion.div variants={fadeUp}>
+          <div>
             <span className="label-eyebrow">03</span>
             <h2 className="mt-2 text-2xl font-bold tracking-tight md:text-3xl">Deliverables</h2>
-          </motion.div>
-          <motion.div variants={fadeUp} className="max-w-3xl">
+          </div>
+          <div className="max-w-3xl">
             <div className="grid gap-3 sm:grid-cols-2">
               {deliverables.map((item, i) => (
                 <div
@@ -276,25 +239,20 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Results */}
       {metrics.length > 0 && (
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={stagger}
-          className="bg-surface/50 border-y border-border"
-        >
+        <div className="bg-surface/50 border-y border-border">
           <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-24">
             <div className="grid gap-12 md:grid-cols-[180px_minmax(0,1fr)] md:gap-20">
-              <motion.div variants={fadeUp}>
+              <div>
                 <span className="label-eyebrow">04</span>
                 <h2 className="mt-2 text-2xl font-bold tracking-tight md:text-3xl">Results</h2>
-              </motion.div>
-              <motion.div variants={fadeUp} className="max-w-3xl">
+              </div>
+              <div className="max-w-3xl">
                 <div className="grid gap-4 sm:grid-cols-3">
                   {metrics.map((metric, i) => (
                     <div
@@ -310,19 +268,14 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
                     </div>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       )}
 
       {/* CTA Section */}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={fadeUp}
-        className="border-t border-border"
-      >
+      <div className="border-t border-border">
         <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-24 text-center">
           <h2 className="text-[2rem] font-bold leading-[1.1] tracking-tight md:text-[2.5rem]">
             Interested in a similar project?
@@ -346,7 +299,7 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
             </Link>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Navigation between projects */}
       <div className="border-t border-border">
@@ -380,7 +333,6 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
   );
 }
 
-// Helper functions
 function getProblem(project: ProjectPageProps["project"]): string {
   const domainProblems: Record<string, string> = {
     network:
