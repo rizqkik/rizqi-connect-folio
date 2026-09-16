@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { CONTACT, NAV_LINKS } from "@/lib/data";
@@ -51,17 +52,19 @@ export function Nav() {
   return (
     <header
       className={cn(
-        "fade-in-up sticky top-0 z-50 bg-background/85 backdrop-blur-[2px] transition-colors duration-300",
+        "fade-in-up fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl transition-all duration-300",
         scrolled ? "border-b border-border" : "border-b border-transparent",
       )}
     >
-      <div className="mx-auto grid max-w-[1180px] grid-cols-[minmax(0,1fr)_auto] items-center gap-6 px-6 py-4 md:px-10">
-        <a href="/" className="flex min-w-0 items-baseline gap-2.5">
-          <span className="grid h-7 w-7 shrink-0 place-items-center border border-border-strong text-[11px] font-medium tracking-[0.04em]">
+      <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4 md:px-10">
+        <Link href="/" className="flex items-center gap-3">
+          <span className="grid h-9 w-9 place-items-center rounded-lg border border-border-strong bg-surface text-[13px] font-semibold tracking-[0.06em] text-accent">
             RF
           </span>
-          <span className="truncate text-sm font-medium tracking-tight">Rizqi Fauzan</span>
-        </a>
+          <span className="hidden text-sm font-medium tracking-tight sm:inline">
+            Rizqi Fauzan
+          </span>
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => (
@@ -69,7 +72,7 @@ export function Nav() {
               key={link.id}
               href={`/#${link.id}`}
               className={cn(
-                "relative text-[13px] tracking-tight transition-colors duration-200",
+                "relative text-[13px] font-medium tracking-tight transition-colors duration-200",
                 active === link.id
                   ? "text-accent"
                   : "text-muted-foreground hover:text-foreground",
@@ -84,13 +87,14 @@ export function Nav() {
               />
             </a>
           ))}
-          <a
-            href={CONTACT.resume}
-            className="border border-border-strong px-3.5 py-1.5 text-[13px] tracking-tight transition-colors duration-200 hover:border-accent hover:text-accent"
-          >
-            Resume
-          </a>
         </nav>
+
+        <Link
+          href={CONTACT.resume}
+          className="hidden rounded-full border border-border-strong px-5 py-2 text-[13px] font-medium tracking-tight transition-all duration-200 hover:border-accent hover:text-accent md:inline-flex"
+        >
+          Resume
+        </Link>
 
         <button
           type="button"
@@ -134,13 +138,13 @@ export function Nav() {
               )}
             >
               {link.label}
-              <span className="label-eyebrow">0{i + 1}</span>
+              <span className="label-eyebrow-muted">0{i + 1}</span>
             </a>
           ))}
           <a
             href={CONTACT.resume}
             onClick={() => setOpen(false)}
-            className="mt-6 border border-border-strong py-3 text-center text-sm tracking-tight"
+            className="mt-6 rounded-full border border-border-strong py-3 text-center text-sm tracking-tight"
           >
             Resume
           </a>

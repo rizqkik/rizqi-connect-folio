@@ -4,12 +4,12 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
 import {
-  ACHIEVEMENTS,
   CONTACT,
   EXPERIENCE,
-  LEADERSHIP,
   PROFILE_META,
+  SERVICES,
   SKILLS,
+  CERTIFICATIONS,
 } from "@/lib/data";
 
 export function Shell({
@@ -20,7 +20,7 @@ export function Shell({
   className?: string;
 }) {
   return (
-    <div className={cn("mx-auto max-w-[1180px] px-6 md:px-10", className)}>
+    <div className={cn("mx-auto max-w-[1280px] px-6 md:px-10", className)}>
       {children}
     </div>
   );
@@ -29,60 +29,58 @@ export function Shell({
 export function SectionHead({
   index,
   title,
+  subtitle,
 }: {
   index: string;
   title: string;
+  subtitle?: string;
 }) {
   return (
-    <div className="flex items-baseline gap-4">
+    <div className="flex flex-col gap-2">
       <span className="label-eyebrow">{index}</span>
-      <h2 className="text-2xl font-medium tracking-tight md:text-3xl">
+      <h2 className="text-2xl font-semibold tracking-tight md:text-3xl lg:text-4xl">
         {title}
       </h2>
+      {subtitle && (
+        <p className="mt-2 max-w-xl text-[0.975rem] leading-relaxed text-muted-foreground">
+          {subtitle}
+        </p>
+      )}
     </div>
   );
 }
 
 export function About() {
   return (
-    <section id="about" className="py-16 md:py-24">
+    <section id="about" className="py-20 md:py-28">
       <Shell>
-        <div className="rule-top grid gap-10 pt-10 md:grid-cols-[180px_minmax(0,1fr)] md:gap-16">
+        <div className="grid gap-12 md:grid-cols-[200px_minmax(0,1fr)] md:gap-20">
           <Reveal>
             <p className="label-eyebrow">About</p>
           </Reveal>
-          <div className="max-w-2xl">
+          <div className="max-w-3xl">
             <Reveal delay={80}>
-              <p className="text-xl leading-relaxed tracking-tight md:text-[1.4rem] md:leading-[1.6]">
-                I&apos;m a Telecommunication Engineering graduate from PENS,
-                working at the intersection of network infrastructure, embedded
-                systems, and applied AI.
+              <p className="text-xl leading-relaxed tracking-tight md:text-2xl md:leading-relaxed">
+                I&apos;m a Telecommunication Engineer and entrepreneur working at the intersection of network infrastructure, intelligent systems, and technology business strategy.
               </p>
             </Reveal>
             <Reveal delay={140}>
               <p className="mt-6 text-[0.975rem] leading-relaxed text-muted-foreground">
-                From deploying BTS and fiber optic networks to building rescue
-                robots and machine learning models for gas detection — I work
-                across the stack: RF planning, IoT pipelines, and intelligent
-                systems that turn sensor data into decisions.
+                From deploying BTS and fiber optic networks to building rescue robots and machine learning models — I work across the stack: RF planning, IoT pipelines, and systems that turn sensor data into decisions. As a co-founder of a tech startup, I also bring business strategy, team leadership, and client management to the table.
               </p>
             </Reveal>
             <Reveal delay={200}>
               <p className="mt-4 text-[0.975rem] leading-relaxed text-muted-foreground">
-                My work spans network engineering (SD-WAN, RAN, fiber),
-                IoT/robotics (ESP32, Raspberry Pi, sensor systems), and AI/ML
-                (classification models, voice assistants, data pipelines). I
-                like problems that require both a spectrum analyzer and a
-                terminal.
+                My approach combines engineering rigor with entrepreneurial thinking — building solutions that are not only technically sound but also commercially viable and scalable.
               </p>
             </Reveal>
 
-            <dl className="mt-12 grid gap-x-10 gap-y-6 sm:grid-cols-2">
+            <dl className="mt-12 grid gap-x-12 gap-y-6 sm:grid-cols-2">
               {PROFILE_META.map((item, i) => (
                 <Reveal key={item.label} delay={240 + i * 50}>
-                  <div className="rule-top pt-3">
-                    <dt className="label-eyebrow">{item.label}</dt>
-                    <dd className="mt-1.5 text-sm tracking-tight">
+                  <div className="rule-top pt-4">
+                    <dt className="label-eyebrow-muted">{item.label}</dt>
+                    <dd className="mt-2 text-sm font-medium tracking-tight">
                       {item.value}
                     </dd>
                   </div>
@@ -96,44 +94,87 @@ export function About() {
   );
 }
 
+export function Services() {
+  return (
+    <section id="services" className="py-20 md:py-28">
+      <Shell>
+        <Reveal>
+          <SectionHead
+            index="01"
+            title="What I Do"
+            subtitle="Three pillars of expertise — network engineering, artificial intelligence, and IoT/robotics — backed by entrepreneurial experience."
+          />
+        </Reveal>
+
+        <div className="mt-16 grid gap-6 md:grid-cols-3">
+          {SERVICES.map((service, i) => (
+            <Reveal key={service.no} delay={100 + i * 80}>
+              <div className="group h-full rounded-2xl border border-border bg-card/50 p-8 transition-all duration-300 hover:border-border-strong hover:bg-card/80">
+                <div className="flex items-center justify-between">
+                  <span className="text-4xl font-bold tracking-tight text-border-strong transition-colors duration-300 group-hover:text-accent/30">
+                    {service.no}
+                  </span>
+                  <span className="rounded-full border border-border px-3 py-1 text-[11px] font-medium tracking-wide text-muted-foreground">
+                    {service.subtitle}
+                  </span>
+                </div>
+                <h3 className="mt-6 text-xl font-semibold tracking-tight">
+                  {service.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {service.description}
+                </p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {service.highlights.map((h) => (
+                    <span
+                      key={h}
+                      className="rounded-full bg-surface px-3 py-1 text-[11px] font-medium tracking-wide text-muted-foreground"
+                    >
+                      {h}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Shell>
+    </section>
+  );
+}
+
 export function Experience() {
   return (
     <section id="experience" className="py-20 md:py-28">
       <Shell>
         <Reveal>
-          <SectionHead index="01" title="Work Experience" />
+          <SectionHead
+            index="02"
+            title="Work Experience"
+            subtitle="Hands-on roles across network deployment, AI engineering, and startup operations."
+          />
         </Reveal>
 
         <div className="mt-12 md:mt-16">
           {EXPERIENCE.map((item, i) => (
             <Reveal key={item.no} delay={i * 100}>
               <div className="rule-top grid gap-6 py-10 md:grid-cols-[140px_minmax(0,1fr)] md:gap-10">
-                {/* Logo */}
                 <div className="flex md:justify-center md:pt-2">
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded bg-surface border border-border flex items-center justify-center overflow-hidden">
-                    {item.logo ? (
-                      <img
-                        src={item.logo}
-                        alt={item.org}
-                        className="w-full h-full object-contain p-2"
-                      />
-                    ) : (
-                      <span className="text-xs text-muted-foreground text-center px-1">
-                        LOGO
-                      </span>
-                    )}
+                  <div className="grid h-16 w-16 place-items-center rounded-xl border border-border bg-surface md:h-20 md:w-20">
+                    <span className="text-xs font-medium tracking-wider text-muted-foreground">
+                      LOGO
+                    </span>
                   </div>
                 </div>
 
-                {/* Experience details */}
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="text-lg font-medium tracking-tight">
+                    <h3 className="text-lg font-semibold tracking-tight">
                       {item.role}
                     </h3>
-                    <span className="label-eyebrow shrink-0">{item.year}</span>
+                    <span className="label-eyebrow-muted shrink-0">{item.year}</span>
                   </div>
-                  <p className="mt-1 text-sm text-accent">{item.org}</p>
+                  <p className="mt-1 text-sm font-medium text-accent">{item.org}</p>
                   <p className="mt-4 max-w-xl text-[0.925rem] leading-relaxed text-muted-foreground">
                     {item.body}
                   </p>
@@ -152,87 +193,64 @@ export function Skills() {
     <section id="skills" className="py-20 md:py-28">
       <Shell>
         <Reveal>
-          <SectionHead index="03" title="Technical Skills" />
+          <SectionHead
+            index="03"
+            title="Technical Skills & Certifications"
+            subtitle="Core competencies and professional certifications across engineering and technology."
+          />
         </Reveal>
 
-        <div className="mt-12 md:mt-16">
-          {SKILLS.map((group, i) => (
-            <Reveal key={group.category} delay={i * 70}>
-              <div className="rule-top grid gap-3 py-7 md:grid-cols-[200px_minmax(0,1fr)] md:gap-10">
-                <p className="label-eyebrow md:pt-1">{group.category}</p>
-                <ul className="flex flex-wrap items-baseline gap-x-3 gap-y-2">
-                  {group.items.map((item, j) => (
-                    <li
-                      key={item}
-                      className="flex items-baseline gap-3 text-[0.975rem] tracking-tight"
-                    >
-                      {j > 0 && <span className="text-border-strong">·</span>}
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+        <div className="mt-12 grid gap-12 md:grid-cols-2 md:gap-20">
+          {/* Skills */}
+          <div>
+            <Reveal delay={60}>
+              <p className="label-eyebrow mb-6">Core Skills</p>
             </Reveal>
-          ))}
-          <div className="rule-top" />
-        </div>
-      </Shell>
-    </section>
-  );
-}
+            <div className="space-y-6">
+              {SKILLS.map((group, i) => (
+                <Reveal key={group.category} delay={100 + i * 60}>
+                  <div className="rule-top pt-6">
+                    <p className="text-sm font-semibold tracking-tight text-accent">
+                      {group.category}
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {group.items.map((item) => (
+                        <span
+                          key={item}
+                          className="rounded-full border border-border px-3 py-1.5 text-[12px] font-medium tracking-wide text-muted-foreground transition-colors duration-200 hover:border-accent hover:text-accent"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
 
-export function Achievements() {
-  return (
-    <section className="py-20 md:py-28">
-      <Shell>
-        <Reveal>
-          <SectionHead index="04" title="Achievements & Certifications" />
-        </Reveal>
-
-        <ul className="mt-12 grid gap-x-14 md:mt-16 md:grid-cols-2">
-          {ACHIEVEMENTS.map((item, i) => (
-            <Reveal key={item.title} delay={i * 55} as="li">
-              <div className="rule-top flex items-baseline justify-between gap-6 py-4">
-                <span className="text-[0.975rem] tracking-tight">
-                  {item.title}
-                </span>
-                <span className="label-eyebrow shrink-0">{item.meta}</span>
-              </div>
+          {/* Certifications */}
+          <div>
+            <Reveal delay={80}>
+              <p className="label-eyebrow mb-6">Certifications</p>
             </Reveal>
-          ))}
-        </ul>
-      </Shell>
-    </section>
-  );
-}
-
-export function Leadership() {
-  return (
-    <section className="py-20 md:py-28">
-      <Shell>
-        <Reveal>
-          <SectionHead index="05" title="Leadership & Organisation" />
-        </Reveal>
-
-        <div className="mt-12 md:mt-16">
-          {LEADERSHIP.map((item, i) => (
-            <Reveal key={item.org} delay={i * 70}>
-              <div className="group relative grid gap-3 border-l border-border py-7 pl-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-12">
-                <span className="absolute -left-[3.5px] top-9 h-[7px] w-[7px] bg-border-strong transition-colors duration-300 group-hover:bg-accent" />
-                <div className="min-w-0">
-                  <h3 className="text-base font-medium tracking-tight">
-                    {item.role}
-                  </h3>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    {item.org}
-                  </p>
-                </div>
-                <p className="text-[0.925rem] leading-relaxed text-muted-foreground">
-                  {item.body}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+            <div className="space-y-4">
+              {CERTIFICATIONS.map((cert, i) => (
+                <Reveal key={cert.title} delay={120 + i * 50}>
+                  <div className="rule-top flex items-baseline justify-between gap-6 py-5">
+                    <div>
+                      <p className="text-sm font-medium tracking-tight">
+                        {cert.title}
+                      </p>
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        {cert.org}
+                      </p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
         </div>
       </Shell>
     </section>
@@ -245,29 +263,30 @@ export function Contact() {
       <Shell>
         <div className="rule-top pt-12">
           <Reveal>
-            <h2 className="max-w-2xl text-[2rem] font-medium leading-[1.12] tracking-tight md:text-[3rem]">
-              Let&apos;s build something meaningful.
+            <h2 className="max-w-2xl text-[2rem] font-semibold leading-[1.12] tracking-tight md:text-[3.5rem]">
+              Let&apos;s build something{" "}
+              <span className="text-gradient">meaningful.</span>
             </h2>
           </Reveal>
           <Reveal delay={90}>
             <p className="mt-6 max-w-xl text-[0.975rem] leading-relaxed text-muted-foreground">
-              Open to opportunities across network engineering, RF, fiber optic,
-              IoT, robotics, embedded systems, and AI.
+              Open to opportunities across network engineering, AI/ML, IoT, robotics, embedded systems, and technology business partnerships.
             </p>
           </Reveal>
           <Reveal delay={160}>
             <div className="mt-10 flex flex-wrap gap-3">
               <a
                 href={`mailto:${CONTACT.email}`}
-                className="bg-primary px-5 py-2.5 text-sm tracking-tight text-primary-foreground transition-opacity duration-200 hover:opacity-88"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium tracking-tight text-accent-foreground transition-all duration-200 hover:opacity-90 hover:shadow-lg hover:shadow-accent/20"
               >
                 Email Me
+                <span>→</span>
               </a>
               <a
                 href={CONTACT.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="border border-border-strong px-5 py-2.5 text-sm tracking-tight transition-colors duration-200 hover:border-accent hover:text-accent"
+                className="inline-flex items-center gap-2 rounded-full border border-border-strong px-6 py-3 text-sm font-medium tracking-tight transition-all duration-200 hover:border-accent hover:text-accent"
               >
                 LinkedIn
               </a>
@@ -275,14 +294,14 @@ export function Contact() {
                 href={CONTACT.github}
                 target="_blank"
                 rel="noreferrer"
-                className="border border-border-strong px-5 py-2.5 text-sm tracking-tight transition-colors duration-200 hover:border-accent hover:text-accent"
+                className="inline-flex items-center gap-2 rounded-full border border-border-strong px-6 py-3 text-sm font-medium tracking-tight transition-all duration-200 hover:border-accent hover:text-accent"
               >
                 GitHub
               </a>
             </div>
           </Reveal>
           <Reveal delay={220}>
-            <p className="label-eyebrow mt-10">{CONTACT.email}</p>
+            <p className="label-eyebrow-muted mt-10">{CONTACT.email}</p>
           </Reveal>
         </div>
       </Shell>

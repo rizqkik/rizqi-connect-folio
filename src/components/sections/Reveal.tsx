@@ -39,7 +39,6 @@ type RevealProps = {
   className?: string;
 };
 
-/** Fade-up scroll reveal. Content stays fully readable with animations disabled. */
 export function Reveal({ children, as: Tag = "div", delay = 0, className }: RevealProps) {
   const { ref, inView } = useInView<HTMLDivElement>({ once: false });
 

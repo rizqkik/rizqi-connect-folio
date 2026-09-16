@@ -1,31 +1,38 @@
-// src/app/layout.tsx
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeProvider";
 import { LanguageProvider } from "@/context/LanguageProvider";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
-  title: "Muhammad Rizqi Fauzan — Network Engineer × AI/IoT Specialist",
+  title: "Muhammad Rizqi Fauzan — Engineer & Business Strategist",
   description:
-    "Portfolio of Muhammad Rizqi Fauzan — Telecommunication Engineer from PENS with expertise in Network Engineering, AI/ML, IoT, and Robotics. Fresh Graduate 2026.",
+    "Telecommunication Engineer, Network Specialist, and AI/IoT innovator with entrepreneurial experience. Bridging technical excellence and business strategy.",
   keywords: [
+    "Telecommunication Engineer",
     "Network Engineer",
     "AI Engineer",
     "IoT Specialist",
-    "Robotics",
-    "Telecommunication",
+    "Business Strategist",
+    "Startup Founder",
     "PENS",
-    "Fresh Graduate",
+    "SD-WAN",
+    "Robotics",
+    "Embedded Systems",
   ],
   authors: [{ name: "Muhammad Rizqi Fauzan" }],
   openGraph: {
-    title: "Muhammad Rizqi Fauzan — Network Engineer × AI/IoT Specialist",
+    title: "Muhammad Rizqi Fauzan — Engineer & Business Strategist",
     description:
-      "Telecommunication Engineer with cross-domain expertise in AI, IoT, and Robotics. Fresh Graduate from PENS 2026.",
+      "Telecommunication Engineer bridging network infrastructure, AI/IoT systems, and technology business strategy.",
     type: "website",
     locale: "id_ID",
   },
@@ -38,7 +45,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id" suppressHydrationWarning>
-      <body className={`${geist.variable} ${geistMono.variable} font-sans antialiased`}>
+      <body
+        className={`${geist.variable} ${geistMono.variable} ${playfair.variable} font-sans antialiased bg-background text-foreground`}
+      >
         <ThemeProvider>
           <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
