@@ -1,5 +1,5 @@
 export const CONTACT = {
-  email: "muhammadrizqifauzan@gmail.com",
+  email: "rizqyfauzan28@gmail.com",
   linkedin: "https://www.linkedin.com/in/muhammadrizqifauzan",
   github: "https://github.com/muhammadrizqifauzan",
   resume: "/resume",
