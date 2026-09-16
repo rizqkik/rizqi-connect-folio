@@ -16,7 +16,7 @@ export const NAV_LINKS = [
 export const PROFILE_META = [
   { label: "Based in", value: "Surabaya, Indonesia" },
   { label: "Education", value: "PENS — Telecommunication Engineering" },
-  { label: "Degree", value: "B.Eng, GPA 3.69" },
+  { label: "Degree", value: "Bachelor of Telecommunication Engineering, GPA 3.69" },
   { label: "Graduation", value: "2026" },
 ];
 

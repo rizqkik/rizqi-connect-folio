@@ -56,7 +56,7 @@ export function About() {
       <Shell>
         <div className="grid gap-12 md:grid-cols-[200px_minmax(0,1fr)] md:gap-20">
           <Reveal>
-            <p className="label-eyebrow">About</p>
+            <p className="text-3xl font-bold tracking-tight md:text-4xl">About</p>
           </Reveal>
           <div className="max-w-3xl">
             <Reveal delay={80}>
