@@ -57,7 +57,7 @@ export const SERVICES = [
 export const EXPERIENCE = [
   {
     no: "01",
-    role: "Co-founder & Operations / AI Engineer",
+    role: "Operasional & AI Engineer",
     org: "NechCode Startup Agency",
     year: "2026",
     body: "Co-founded and operated a digital technology startup delivering web, mobile, AI chatbot, and automation solutions. Coordinated projects, teams, budgeting, and machine learning deployment for client engagements.",
