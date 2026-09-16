@@ -36,6 +36,7 @@
 
   --ease-out-quart: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 :root {
@@ -159,11 +160,12 @@
 
 @utility reveal {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(24px) scale(0.98);
   transition:
-    opacity 800ms var(--ease-out-quart),
-    transform 800ms var(--ease-out-quart);
+    opacity 900ms var(--ease-out-quart),
+    transform 900ms var(--ease-out-quart);
   transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
 
   &[data-shown="true"] {
     opacity: 1;
@@ -172,18 +174,20 @@
 }
 
 @utility fade-in-up {
-  animation: fade-in-up 700ms var(--ease-out-quart) both;
+  animation: fade-in-up 800ms var(--ease-out-quart) both;
   animation-delay: var(--anim-delay, 0ms);
 }
 
 @keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px) scale(0.98);
+    filter: blur(4px);
   }
   to {
     opacity: 1;
     transform: none;
+    filter: none;
   }
 }
 
@@ -228,4 +232,28 @@
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+/* --- Page transition classes --- */
+
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 500ms var(--ease-smooth),
+    transform 500ms var(--ease-smooth);
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 250ms var(--ease-smooth);
 }

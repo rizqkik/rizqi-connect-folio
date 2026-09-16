@@ -80,6 +80,7 @@ export const EXPERIENCE = [
 
 export const PROJECTS = [
   {
+    slug: "aeris-rescue-robot",
     no: "01",
     title: "AERIS — Rescue Robot",
     subtitle: "Hazardous Gas Detection",
@@ -90,6 +91,7 @@ export const PROJECTS = [
     drive: "https://drive.google.com/drive/folders/1PPSa7zWbQIizz-zGD1dfAw1u2awig5Le?usp=sharing",
   },
   {
+    slug: "sdwan-backup-migration",
     no: "02",
     title: "SD-WAN Backup Service Migration",
     subtitle: "Railway Operations",
@@ -100,6 +102,7 @@ export const PROJECTS = [
     drive: "https://drive.google.com/drive/folders/1OAg2WLbw6AIsz0EycherHPWNGKQteWeZ?usp=sharing",
   },
   {
+    slug: "airys-voice-assistant",
     no: "03",
     title: "AIRys — AI Voice Assistant",
     subtitle: "Speech Recognition System",
@@ -110,6 +113,7 @@ export const PROJECTS = [
     drive: "https://drive.google.com/drive/folders/1S81Ouo0S53VSdk8rgYtuuVbaRPNJIMMR?usp=sharing",
   },
   {
+    slug: "ftth-access-network",
     no: "04",
     title: "FTTH Access Network Design",
     subtitle: "Fiber to the Home",
@@ -120,6 +124,7 @@ export const PROJECTS = [
     drive: "https://drive.google.com/drive/folders/1Gg1wIgjPILMnPEx31qgNCe7LbbYJPxmk?usp=sharing",
   },
   {
+    slug: "atoll-rf-planning",
     no: "05",
     title: "Atoll RF Planning",
     subtitle: "Coverage Simulation",
@@ -130,6 +135,7 @@ export const PROJECTS = [
     drive: "https://drive.google.com/drive/folders/1LgZ7-5nuD0RjOhxASAS6kQX__9P_eebv?usp=sharing",
   },
   {
+    slug: "ml-gas-classifier",
     no: "06",
     title: "ML Random Forest Classifier",
     subtitle: "Gas Detection Model",
@@ -140,6 +146,7 @@ export const PROJECTS = [
     drive: "https://drive.google.com/drive/folders/1OAg2WLbw6AIsz0EycherHPWNGKQteWeZ?usp=sharing",
   },
   {
+    slug: "2g-4g-drive-test",
     no: "07",
     title: "2G vs 4G Drive Test",
     subtitle: "Radio Measurement Study",
@@ -150,6 +157,7 @@ export const PROJECTS = [
     drive: "https://drive.google.com/drive/folders/15Aaql7jJNC0qHBATvSE1fSawdixcJ9jN?usp=sharing",
   },
   {
+    slug: "obstacle-avoidance-robot",
     no: "08",
     title: "Autonomous Obstacle Avoidance Robot",
     subtitle: "Embedded Control",
