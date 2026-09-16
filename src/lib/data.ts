@@ -1,6 +1,6 @@
 export const CONTACT = {
   email: "rizqyfauzan28@gmail.com",
-  linkedin: "https://www.linkedin.com/in/muhammadrizqifauzan",
+  linkedin: "https://www.linkedin.com/in/muhammad-rizqi-fauzan-856458286/",
   github: "https://github.com/muhammadrizqifauzan",
   resume: "/resume",
 };
