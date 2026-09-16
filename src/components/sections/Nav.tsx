@@ -52,21 +52,21 @@ export function Nav() {
   return (
     <header
       className={cn(
-        "fade-in-up fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl transition-all duration-300",
-        scrolled ? "border-b border-border" : "border-b border-transparent",
+        "fade-in-up fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl transition-all duration-300",
+        scrolled ? "border-b border-border shadow-sm" : "border-b border-transparent",
       )}
     >
-      <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4 md:px-10">
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 md:px-12">
         <Link href="/" className="flex items-center gap-3">
-          <span className="grid h-9 w-9 place-items-center rounded-lg border border-border-strong bg-surface text-[13px] font-semibold tracking-[0.06em] text-accent">
+          <span className="grid h-9 w-9 place-items-center rounded-lg bg-accent text-[13px] font-bold tracking-[0.06em] text-white">
             RF
           </span>
-          <span className="hidden text-sm font-medium tracking-tight sm:inline">
+          <span className="hidden text-sm font-semibold tracking-tight sm:inline">
             Rizqi Fauzan
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-10 md:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.id}
@@ -81,7 +81,7 @@ export function Nav() {
               {link.label}
               <span
                 className={cn(
-                  "absolute -bottom-1.5 left-0 h-px w-full origin-left bg-accent transition-transform duration-300",
+                  "absolute -bottom-1.5 left-0 h-0.5 w-full origin-left bg-accent transition-transform duration-300",
                   active === link.id ? "scale-x-100" : "scale-x-0",
                 )}
               />
@@ -105,13 +105,13 @@ export function Nav() {
         >
           <span
             className={cn(
-              "h-px w-5 bg-foreground transition-transform duration-300",
+              "h-0.5 w-5 bg-foreground transition-transform duration-300",
               open && "translate-y-[3px] rotate-45",
             )}
           />
           <span
             className={cn(
-              "h-px w-5 bg-foreground transition-transform duration-300",
+              "h-0.5 w-5 bg-foreground transition-transform duration-300",
               open && "-translate-y-[3px] -rotate-45",
             )}
           />

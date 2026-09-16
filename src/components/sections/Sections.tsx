@@ -20,7 +20,7 @@ export function Shell({
   className?: string;
 }) {
   return (
-    <div className={cn("mx-auto max-w-[1280px] px-6 md:px-10", className)}>
+    <div className={cn("mx-auto max-w-[1400px] px-6 md:px-12", className)}>
       {children}
     </div>
   );
@@ -38,7 +38,7 @@ export function SectionHead({
   return (
     <div className="flex flex-col gap-2">
       <span className="label-eyebrow">{index}</span>
-      <h2 className="text-2xl font-semibold tracking-tight md:text-3xl lg:text-4xl">
+      <h2 className="text-2xl font-bold tracking-tight md:text-3xl lg:text-4xl">
         {title}
       </h2>
       {subtitle && (
@@ -96,7 +96,7 @@ export function About() {
 
 export function Services() {
   return (
-    <section id="services" className="py-20 md:py-28">
+    <section id="services" className="py-20 md:py-28 bg-surface/50">
       <Shell>
         <Reveal>
           <SectionHead
@@ -109,7 +109,7 @@ export function Services() {
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {SERVICES.map((service, i) => (
             <Reveal key={service.no} delay={100 + i * 80}>
-              <div className="group h-full rounded-2xl border border-border bg-card/50 p-8 transition-all duration-300 hover:border-border-strong hover:bg-card/80">
+              <div className="group h-full rounded-2xl border border-border bg-background p-8 transition-all duration-300 hover:border-accent hover:shadow-lg hover:shadow-accent/5">
                 <div className="flex items-center justify-between">
                   <span className="text-4xl font-bold tracking-tight text-border-strong transition-colors duration-300 group-hover:text-accent/30">
                     {service.no}
@@ -118,7 +118,7 @@ export function Services() {
                     {service.subtitle}
                   </span>
                 </div>
-                <h3 className="mt-6 text-xl font-semibold tracking-tight">
+                <h3 className="mt-6 text-xl font-bold tracking-tight">
                   {service.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
@@ -161,7 +161,7 @@ export function Experience() {
               <div className="rule-top grid gap-6 py-10 md:grid-cols-[140px_minmax(0,1fr)] md:gap-10">
                 <div className="flex md:justify-center md:pt-2">
                   <div className="grid h-16 w-16 place-items-center rounded-xl border border-border bg-surface md:h-20 md:w-20">
-                    <span className="text-xs font-medium tracking-wider text-muted-foreground">
+                    <span className="text-xs font-semibold tracking-wider text-accent">
                       LOGO
                     </span>
                   </div>
@@ -169,12 +169,12 @@ export function Experience() {
 
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="text-lg font-semibold tracking-tight">
+                    <h3 className="text-lg font-bold tracking-tight">
                       {item.role}
                     </h3>
                     <span className="label-eyebrow-muted shrink-0">{item.year}</span>
                   </div>
-                  <p className="mt-1 text-sm font-medium text-accent">{item.org}</p>
+                  <p className="mt-1 text-sm font-semibold text-accent">{item.org}</p>
                   <p className="mt-4 max-w-xl text-[0.925rem] leading-relaxed text-muted-foreground">
                     {item.body}
                   </p>
@@ -190,7 +190,7 @@ export function Experience() {
 
 export function Skills() {
   return (
-    <section id="skills" className="py-20 md:py-28">
+    <section id="skills" className="py-20 md:py-28 bg-surface/50">
       <Shell>
         <Reveal>
           <SectionHead
@@ -210,7 +210,7 @@ export function Skills() {
               {SKILLS.map((group, i) => (
                 <Reveal key={group.category} delay={100 + i * 60}>
                   <div className="rule-top pt-6">
-                    <p className="text-sm font-semibold tracking-tight text-accent">
+                    <p className="text-sm font-bold tracking-tight text-accent">
                       {group.category}
                     </p>
                     <div className="mt-3 flex flex-wrap gap-2">
@@ -263,7 +263,7 @@ export function Contact() {
       <Shell>
         <div className="rule-top pt-12">
           <Reveal>
-            <h2 className="max-w-2xl text-[2rem] font-semibold leading-[1.12] tracking-tight md:text-[3.5rem]">
+            <h2 className="max-w-2xl text-[2rem] font-bold leading-[1.12] tracking-tight md:text-[3.5rem]">
               Let&apos;s build something{" "}
               <span className="text-gradient">meaningful.</span>
             </h2>
@@ -277,7 +277,7 @@ export function Contact() {
             <div className="mt-10 flex flex-wrap gap-3">
               <a
                 href={`mailto:${CONTACT.email}`}
-                className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium tracking-tight text-accent-foreground transition-all duration-200 hover:opacity-90 hover:shadow-lg hover:shadow-accent/20"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold tracking-tight text-white transition-all duration-200 hover:opacity-90 hover:shadow-lg hover:shadow-accent/25"
               >
                 Email Me
                 <span>→</span>
@@ -286,7 +286,7 @@ export function Contact() {
                 href={CONTACT.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-border-strong px-6 py-3 text-sm font-medium tracking-tight transition-all duration-200 hover:border-accent hover:text-accent"
+                className="inline-flex items-center gap-2 rounded-full border border-border-strong px-6 py-3 text-sm font-semibold tracking-tight transition-all duration-200 hover:border-accent hover:text-accent"
               >
                 LinkedIn
               </a>
@@ -294,7 +294,7 @@ export function Contact() {
                 href={CONTACT.github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-border-strong px-6 py-3 text-sm font-medium tracking-tight transition-all duration-200 hover:border-accent hover:text-accent"
+                className="inline-flex items-center gap-2 rounded-full border border-border-strong px-6 py-3 text-sm font-semibold tracking-tight transition-all duration-200 hover:border-accent hover:text-accent"
               >
                 GitHub
               </a>
