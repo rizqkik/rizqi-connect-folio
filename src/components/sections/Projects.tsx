@@ -19,7 +19,7 @@ export function Projects() {
       <Shell>
         <Reveal>
           <SectionHead
-            index="04"
+            index="05"
             title="Selected Projects"
             subtitle="A curated selection across network engineering, AI, and IoT/robotics. Click to explore each project in detail."
           />

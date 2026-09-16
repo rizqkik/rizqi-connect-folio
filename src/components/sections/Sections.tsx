@@ -195,62 +195,85 @@ export function Skills() {
         <Reveal>
           <SectionHead
             index="03"
-            title="Technical Skills & Certifications"
-            subtitle="Core competencies and professional certifications across engineering and technology."
+            title="Technical Skills"
+            subtitle="Core competencies across engineering and technology domains."
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-12 md:grid-cols-2 md:gap-20">
-          {/* Skills */}
-          <div>
-            <Reveal delay={60}>
-              <p className="label-eyebrow mb-6">Core Skills</p>
+        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {SKILLS.map((group, i) => (
+            <Reveal key={group.category} delay={80 + i * 60}>
+              <div className="rounded-xl border border-border bg-background p-6">
+                <p className="text-sm font-bold tracking-tight text-accent">
+                  {group.category}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-border px-3 py-1.5 text-[12px] font-medium tracking-wide text-muted-foreground transition-colors duration-200 hover:border-accent hover:text-accent"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </Reveal>
-            <div className="space-y-6">
-              {SKILLS.map((group, i) => (
-                <Reveal key={group.category} delay={100 + i * 60}>
-                  <div className="rule-top pt-6">
-                    <p className="text-sm font-bold tracking-tight text-accent">
-                      {group.category}
-                    </p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {group.items.map((item) => (
-                        <span
-                          key={item}
-                          className="rounded-full border border-border px-3 py-1.5 text-[12px] font-medium tracking-wide text-muted-foreground transition-colors duration-200 hover:border-accent hover:text-accent"
-                        >
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
+          ))}
+        </div>
+      </Shell>
+    </section>
+  );
+}
 
-          {/* Certifications */}
-          <div>
-            <Reveal delay={80}>
-              <p className="label-eyebrow mb-6">Certifications</p>
-            </Reveal>
-            <div className="space-y-4">
-              {CERTIFICATIONS.map((cert, i) => (
-                <Reveal key={cert.title} delay={120 + i * 50}>
-                  <div className="rule-top flex items-baseline justify-between gap-6 py-5">
-                    <div>
-                      <p className="text-sm font-medium tracking-tight">
-                        {cert.title}
-                      </p>
-                      <p className="mt-1 text-xs text-muted-foreground">
+export function Certifications() {
+  return (
+    <section id="certifications" className="py-20 md:py-28">
+      <Shell>
+        <Reveal>
+          <SectionHead
+            index="04"
+            title="Certifications"
+            subtitle="Professional certifications and training programs across telecommunication, cloud, AI, and software development."
+          />
+        </Reveal>
+
+        <div className="mt-12 space-y-12">
+          {CERTIFICATIONS.map((group, i) => (
+            <Reveal key={group.category} delay={80 + i * 60}>
+              <div>
+                <p className="label-eyebrow mb-6">{group.category}</p>
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {group.items.map((cert) => (
+                    <div
+                      key={cert.title}
+                      className="group rounded-xl border border-border bg-background p-5 transition-all duration-300 hover:border-accent hover:shadow-lg hover:shadow-accent/5"
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <h4 className="text-sm font-bold tracking-tight leading-snug">
+                          {cert.title}
+                        </h4>
+                        <span className="shrink-0 rounded-full bg-surface px-2 py-0.5 text-[10px] font-semibold tracking-wide text-muted-foreground">
+                          {cert.year}
+                        </span>
+                      </div>
+                      <p className="mt-2 text-xs font-medium text-accent">
                         {cert.org}
                       </p>
+                      <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                        {cert.description}
+                      </p>
+                      {cert.expires && (
+                        <p className="mt-3 text-[10px] font-medium tracking-wide text-muted-foreground/70">
+                          Valid until {cert.expires}
+                        </p>
+                      )}
                     </div>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </Shell>
     </section>

@@ -10,6 +10,7 @@ export const NAV_LINKS = [
   { id: "services", label: "Services" },
   { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
+  { id: "certifications", label: "Certifications" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -23,7 +24,7 @@ export const PROFILE_META = [
 export const STATS = [
   { number: "3+", label: "Years Experience" },
   { number: "14+", label: "Projects Completed" },
-  { number: "4+", label: "Certifications" },
+  { number: "18+", label: "Certifications" },
   { number: "3", label: "Business Ventures" },
 ];
 
@@ -264,8 +265,142 @@ export const CAPABILITIES = [
 ];
 
 export const CERTIFICATIONS = [
-  { title: "HCIA — Routing & Switching", org: "Huawei" },
-  { title: "Network Engineer", org: "KOMDIGI Digitalent" },
-  { title: "AI Engineering", org: "ReWork Academy" },
-  { title: "Python / Data Science", org: "Dicoding" },
+  {
+    category: "Telecommunication & Network",
+    items: [
+      {
+        title: "Planning in Access Network Coverage",
+        org: "BNSP (Badan Nasional Sertifikasi Profesi)",
+        year: "2025",
+        expires: "2028",
+        description: "National professional certification for access network planning and coverage design.",
+      },
+      {
+        title: "Network Engineer",
+        org: "KOMDIGI Digitalent",
+        year: "2026",
+        description: "Government-funded training and certification for network engineering competencies.",
+      },
+      {
+        title: "RAN Installer Trainee",
+        org: "TechBros (PT. TDN)",
+        year: "2026",
+        description: "Hands-on training for RAN infrastructure installation and BTS deployment.",
+      },
+      {
+        title: "HCIA Datacom Course",
+        org: "Huawei ICT Academy",
+        year: "2025",
+        description: "Huawei Certified ICT Associate — Datacom, covering routing, switching, and network security.",
+      },
+      {
+        title: "HCIA IoT Course",
+        org: "Huawei ICT Academy",
+        year: "2025",
+        description: "Huawei Certified ICT Associate — Internet of Things, covering IoT protocols and platforms.",
+      },
+    ],
+  },
+  {
+    category: "Cloud & Computing",
+    items: [
+      {
+        title: "HCIA Cloud Service Course",
+        org: "Huawei ICT Academy",
+        year: "2025",
+        description: "Huawei Certified ICT Associate — Cloud Service, covering cloud fundamentals and Huawei Cloud.",
+      },
+      {
+        title: "HCIA Cloud Computing Course",
+        org: "Huawei ICT Academy",
+        year: "2025",
+        description: "Huawei Certified ICT Associate — Cloud Computing, covering virtualization and cloud infrastructure.",
+      },
+      {
+        title: "HCIA Cloud Service Course (Colombia Training Program)",
+        org: "Huawei ICT Academy",
+        year: "2025",
+        description: "International training program for cloud service deployment and management.",
+      },
+    ],
+  },
+  {
+    category: "Artificial Intelligence & Data Science",
+    items: [
+      {
+        title: "AI Engineering",
+        org: "ReWork Academy",
+        year: "2026",
+        description: "Comprehensive AI engineering program covering ML, DL, and production deployment.",
+      },
+      {
+        title: "HCIA AI Course",
+        org: "Huawei ICT Academy",
+        year: "2025",
+        description: "Huawei Certified ICT Associate — Artificial Intelligence, covering AI fundamentals and frameworks.",
+      },
+      {
+        title: "HCIA AI Course (Colombia Training Program)",
+        org: "Huawei ICT Academy",
+        year: "2025",
+        description: "International training program for AI technologies and applications.",
+      },
+      {
+        title: "Data Science & AI Machine Learning",
+        org: "Dibimbing",
+        year: "2026",
+        description: "Intensive training in data science, machine learning, and AI applications.",
+      },
+      {
+        title: "Belajar Penerapan Data Science dengan Microsoft Azure",
+        org: "Dicoding Indonesia",
+        year: "2026",
+        expires: "2029",
+        description: "Data science implementation using Microsoft Azure cloud platform.",
+      },
+      {
+        title: "Microsoft Fabric",
+        org: "Dicoding Indonesia",
+        year: "2026",
+        expires: "2029",
+        description: "Data analytics and business intelligence with Microsoft Fabric platform.",
+      },
+      {
+        title: "Membangun Aplikasi Gen AI",
+        org: "Dicoding Indonesia",
+        year: "2026",
+        expires: "2029",
+        description: "Building Generative AI applications using modern frameworks and tools.",
+      },
+    ],
+  },
+  {
+    category: "Programming & Software Development",
+    items: [
+      {
+        title: "Memulai Pemrograman dengan Python",
+        org: "Dicoding Indonesia",
+        year: "2026",
+        expires: "2029",
+        description: "Fundamental programming with Python, covering syntax, data structures, and OOP.",
+      },
+      {
+        title: "Discover AI Virtual Conference",
+        org: "Snowflake",
+        year: "2026",
+        description: "Virtual conference on AI and data cloud technologies by Snowflake.",
+      },
+    ],
+  },
+  {
+    category: "Professional Experience",
+    items: [
+      {
+        title: "Internship Certificate",
+        org: "PT. PLN ICON Plus",
+        year: "2025",
+        description: "Internship completion certificate for Datacom Activation Junior Engineer role.",
+      },
+    ],
+  },
 ];
